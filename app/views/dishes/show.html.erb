@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @dish.descricao %>
+</p>
+
+<p>
+  <strong>Preco:</strong>
+  <%= @dish.preco %>
+</p>
+
+<p>
+  <strong>Tempopreparo:</strong>
+  <%= @dish.tempopreparo %>
+</p>
+
+<strong>Ingredients:</strong>
+<% for ingredients in Ingredients.all %>
+  <div>
+    <%= check_box_tag "product[ingredient_ids][]", ingredients.id, @product.ingredients.include?(ingredient) %>
+    <%= ingredient.descricao %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<%= link_to 'Back', dishes_path %>
