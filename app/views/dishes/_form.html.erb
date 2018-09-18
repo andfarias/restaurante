@@ -28,7 +28,7 @@
 
   <% for ingredient in Ingredient.all %>
     <div>
-      <%= check_box_tag "product[ingredient_ids][]", ingredient.id, @dish.ingredients.include?(ingredient) %>
+      <%= check_box_tag "dish[ingredient_ids][]", ingredient.id, @dish.ingredients.include?(ingredient) %>
       <%= ingredient.descricao %>
     </div>
   <% end %>

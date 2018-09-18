@@ -15,13 +15,12 @@
   <%= @dish.tempopreparo %>
 </p>
 
-<strong>Ingredients:</strong>
-<% for ingredients in Ingredients.all %>
-  <div>
-    <%= check_box_tag "product[ingredient_ids][]", ingredients.id, @product.ingredients.include?(ingredient) %>
-    <%= ingredient.descricao %>
-  </div>
-<% end %>
+<p>
+  <strong>Ingredients:</strong>
+  <% @dish.ingredients.each  {|ingredient| %>
+    <%= ingredient.descricao + ', '%>
+  <% } %>
+</p>
 
 <%= link_to 'Edit', edit_dish_path(@dish) %> |
 <%= link_to 'Back', dishes_path %>
